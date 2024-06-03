@@ -27,3 +27,8 @@ Thumbs.db
 .vscode/
 *.sublime-project
 *.sublime-workspace
+
+# ignore lock file
+*.lock
+package-lock.json
+bun.lockb
