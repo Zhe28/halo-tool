@@ -12,12 +12,12 @@ const databaseType = 'sqlite3'
  * @description 目标文件的路径
  * @type {string}
  */
-const file = resolve("src/server/resources/identityCard.txt")
+const file = resolve("resources/identityCard.txt")
 /**
  * @description 数据库文件位置
  * @type {string}
  */
-const DB = resolve("src/server/identityCard.sqlite")
+const DB = resolve("identityCard.sqlite")
 
 switch (databaseType) {
   case "sqlite3":
