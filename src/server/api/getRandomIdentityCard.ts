@@ -1,4 +1,5 @@
-import {DataTypes, Model, Sequelize} from "sequelize";
+import {DataTypes, Sequelize} from "sequelize";
+import koa from "koa";
 
 const sequelize = new Sequelize({
   database: process.env.DATABASE,
@@ -9,7 +10,7 @@ const sequelize = new Sequelize({
   logging: true,
   pool: {
     // 连接池中最大的连接数
-    max: 1,
+    max: 5,
     // 连接池中最小的连接数
     min: 0,
     // 连接池中连接的最大空闲时间
@@ -18,11 +19,11 @@ const sequelize = new Sequelize({
   }
 })
 
-// 缓存获取到过的身份证信息， 减少数据库请求
-let _identityCard: undefined | Model<any, any>[] = undefined
-let _count = 0
-
-async function getRandomIdentityCard() {
+/**
+ * @description 随机获取一个身份证信息
+ * @returns {Promise<Model>}
+ */
+async function getRandomIdentityCard(context: koa.Context) {
   const identityCard = sequelize.define("identityCard", {
     id: {
       type: DataTypes.INTEGER,
@@ -42,16 +43,17 @@ async function getRandomIdentityCard() {
     await identityCard.sync({alter: true})
   }
 
-  if (!_identityCard) {
-    const {rows, count} = await identityCard.findAndCountAll()
-    _identityCard = rows
-    _count = count
+  const count = await identityCard.count()
+  if (count === 0) return null
 
-  }
+  const res = await identityCard.findOne({
+    where: {
+      id: Math.floor(Math.random() * count)
+    }
+  })
 
-  // 随机获取一个身份证信息
-  const randomIndex = Math.floor(Math.random() * 10 * _count)
-  return _identityCard[randomIndex]
+  context.response.body = res
+  return res;
 }
 
 

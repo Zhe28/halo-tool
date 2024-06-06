@@ -1,14 +1,15 @@
 import koa from 'koa';
 import cros from '@koa/cors'
-import {api} from "./api/index.js";
-import {router} from "./midware/router.js";
+import {logger} from "./midware/logger.js";
+import {router} from "./api/index.js";
 
 const PORT = 521
 const server = new koa()
+
 server.use(cros())
+// server.use(logger)
 server.use(router.routes())
 
-server.use(api)
 server.listen(
   PORT,
   () => {
