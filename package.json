@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "server": "",
+    "server": "node src/server/dist/index.js",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
+    "@koa/cors": "^5.0.0",
     "dayjs": "^1.11.11",
     "element-plus": "^2.7.2",
     "koa": "^2.15.3",
@@ -21,6 +22,7 @@
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
+    "@types/node": "^20.14.2",
     "@vitejs/plugin-vue": "^5.0.4",
     "sass": "^1.76.0",
     "typescript": "^5.2.2",
