@@ -51,12 +51,10 @@ const idc = sequelize.define('identityCards', {
 })
 
 
-switch (databaseType) {
-  case "sqlite3":
-    sqliteTransformer(file, DB, '----')
-    break
-  case "mysql":
-    mysqlTransformer(file, '----')
+if (databaseType === "sqlite3") {
+  sqliteTransformer(file, DB, '----')
+} else if (databaseType === "mysql") {
+  mysqlTransformer(file, '----')
 }
 
 /**
