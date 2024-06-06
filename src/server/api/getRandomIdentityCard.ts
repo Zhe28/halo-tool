@@ -1,4 +1,4 @@
-import {DataTypes, Sequelize} from "sequelize";
+import {DataTypes, Model, Sequelize} from "sequelize";
 
 const sequelize = new Sequelize({
   database: process.env.DATABASE,
@@ -18,6 +18,10 @@ const sequelize = new Sequelize({
   }
 })
 
+// 缓存获取到过的身份证信息， 减少数据库请求
+let _identityCard: undefined | Model<any, any>[] = undefined
+let _count = 0
+
 async function getRandomIdentityCard() {
   const identityCard = sequelize.define("identityCard", {
     id: {
@@ -28,8 +32,8 @@ async function getRandomIdentityCard() {
     },
     name: DataTypes.STRING,
     number: DataTypes.STRING,
-  },{
-    tableName:'identityCard',
+  }, {
+    tableName: 'identityCard',
   })
 
   // 检测数据库是否初始化
@@ -38,12 +42,16 @@ async function getRandomIdentityCard() {
     await identityCard.sync({alter: true})
   }
 
-  const {rows, count} = await identityCard.findAndCountAll()
+  if (!_identityCard) {
+    const {rows, count} = await identityCard.findAndCountAll()
+    _identityCard = rows
+    _count = count
+
+  }
 
   // 随机获取一个身份证信息
-  const randomIndex = Math.floor(Math.random() * count)
-  console.log(rows[randomIndex])
-  return rows[randomIndex]
+  const randomIndex = Math.floor(Math.random() * 10 * _count)
+  return _identityCard[randomIndex]
 }
 
 

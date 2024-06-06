@@ -8,8 +8,7 @@ export async function api(context: koa.Context) {
       console.log(`the koa api request path is:${context.request.path}\n`)
       break;
     case '/getRandomIdentityCard':
-      const res = await getRandomIdentityCard()
-      console.log(res)
+      context.response.body = await getRandomIdentityCard()
       break;
     default:
       // 默认返回404
