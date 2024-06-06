@@ -4,7 +4,7 @@ import {api} from "./api/index.js";
 
 const PORT = 521
 const server = new koa()
-// server.use(cros)
+server.use(cros())
 
 server.use(api)
 server.listen(
