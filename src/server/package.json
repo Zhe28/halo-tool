@@ -2,10 +2,18 @@
   "name": "haro-tool-server",
   "module": "dist/index.js",
   "type": "module",
+  "scripts": {
+    "dev": "tsc  && node dist/index.js",
+    "transform": "tsc && node dist/tools/textToDB.js"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "mysql2": "^3.10.0",
+    "sequelize": "^6.37.3"
   }
 }
