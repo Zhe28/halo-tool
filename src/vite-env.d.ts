@@ -1,5 +1,6 @@
 /// <reference types="vite/client" />
 type identityCard = {
+  id?: number,
   /**
    * @description 姓名
    */
@@ -7,7 +8,15 @@ type identityCard = {
   /**
    * @description 身份证号码
    */
-  number: string
+  number: string,
+  /**
+   * @description 创建时间
+   */
+  createdAt?:string,
+  /**
+   * @description 更新时间
+   */
+  updatedAt?:string
 }
 
 type identityCardProps = Extract<identityCard, 'name' | 'number'>
