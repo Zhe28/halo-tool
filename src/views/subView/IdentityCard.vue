@@ -2,11 +2,11 @@
 import {Pointer} from "@element-plus/icons-vue";
 import {ref} from "vue";
 import {ElNotification} from "element-plus";
+import {getIdentityCard} from "../../utils/axios.ts";
 
-const identity = ref<identityCard>({name: '张三', number: '123321'})
-const name = ref(identity.value.name)
-const number = ref(identity.value.number)
 const loading = ref<boolean>(false)
+const name = ref<string>('')
+const number = ref<string>('')
 
 function copyIdentityCardProp(props: keyof identityCardProps) {
   if (navigator.clipboard) {
@@ -19,6 +19,15 @@ function copyIdentityCardProp(props: keyof identityCardProps) {
     })
     navigator.clipboard.writeText(<string>props)
   }
+}
+
+function getRandomIdentityCard() {
+  loading.value = true
+  getIdentityCard().then((value: identityCard) => {
+    name.value = value.name;
+    number.value = value.number;
+    loading.value = false
+  })
 }
 
 </script>
