@@ -4,8 +4,8 @@
       <el-menu
           :collapse="isCollapse"
           :router="true"
-          default-active="getIdentityCard">
-        <el-menu-item index="getIdentityCard">获取随机身份证</el-menu-item>
+          :default-active="identityCardPath">
+        <el-menu-item :index="identityCardPath">获取随机身份证</el-menu-item>
       </el-menu>
     </el-scrollbar>
   </div>
@@ -13,6 +13,8 @@
 
 <script setup lang="ts">
 import {ref} from "vue";
+
+import {identityCardPath} from "../router/path.ts";
 
 const isCollapse = ref<boolean>(false)
 

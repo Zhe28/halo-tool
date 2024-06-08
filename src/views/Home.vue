@@ -19,8 +19,7 @@ const title = "MyTools";
       <!-- 内容栏 -->
       <el-main>
         <!--<content/>-->
-        <router-view
-            name="content"></router-view>
+        <router-view></router-view>
       </el-main>
       <!-- 右边栏 -->
       <el-aside width="200px">

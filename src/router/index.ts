@@ -1,4 +1,5 @@
 import {createRouter, createWebHashHistory} from "vue-router";
+import {identityCardPath} from "./path.ts";
 
 export const router = createRouter({
   history: createWebHashHistory(),
@@ -6,14 +7,14 @@ export const router = createRouter({
     name: 'home',
     path: '/',
     components: {
-      content: () =>  import("../views/subView/IdentityCard.vue"),
+      default: () => import("../views/subView/IdentityCard.vue"),
       leftSide: () => import("../components/LeftSide.vue"),
       rightSide: () => import("../components/RightSide.vue")
     },
     children: [{
-      path: 'getIdentityCard',
+      path: identityCardPath,
       components: {
-        content: () => import("../views/subView/IdentityCard.vue")
+        default: () => import("../views/subView/IdentityCard.vue")
       },
     }]
   }]
