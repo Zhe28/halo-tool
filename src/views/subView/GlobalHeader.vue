@@ -24,7 +24,7 @@ const underline = ref(false)
 
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   svg {
