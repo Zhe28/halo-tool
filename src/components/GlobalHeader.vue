@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import ToolIcon from "../assets/ToolIcon.vue";
+import {ref} from "vue";
 
 const props = defineProps<{
   title: string
 }>()
+
+const underline = ref(false)
 </script>
 
 <template>
-  <div class="container">
+  <el-link :underline=underline href="/" class="container">
     <tool-icon class="icon"/>
     <h2>{{ props.title }}</h2>
-    <div>
-
-    </div>
-  </div>
+  </el-link>
 </template>
 
 <style scoped lang="scss">
@@ -28,7 +28,7 @@ const props = defineProps<{
   align-items: center;
 
   svg {
-    margin-right: 10px;
+    margin-right: 5px;
   }
 }
 </style>
