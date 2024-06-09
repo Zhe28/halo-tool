@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ToolIcon from "../assets/ToolIcon.vue";
+import ToolIcon from "../../assets/ToolIcon.vue";
 import {ref} from "vue";
 
 const props = defineProps<{

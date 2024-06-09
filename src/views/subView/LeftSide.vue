@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import {ref} from "vue";
 
-import {identityCardPath} from "../router/path.ts";
+import {identityCardPath} from "../../router/path.ts";
 
 const isCollapse = ref<boolean>(false)
 

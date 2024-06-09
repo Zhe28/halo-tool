@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import GlobalHeader from "../components/GlobalHeader.vue";
+import GlobalHeader from "./subView/GlobalHeader.vue";
 
 const title = "MyTools";
 </script>
