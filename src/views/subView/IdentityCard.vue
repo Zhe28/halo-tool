@@ -1,21 +1,28 @@
 <script setup lang="ts">
 import {Pointer} from "@element-plus/icons-vue";
 import {ref} from "vue";
-import {ElNotification} from "element-plus";
+// import {ElNotification} from "element-plus";
 import {getIdentityCard} from "../../utils/axios.ts";
+import {ElMessage} from "element-plus";
 
 const loading = ref<boolean>(false)
 const name = ref<string>('')
 const number = ref<string>('')
 
 function copyIdentityCardProp(props: keyof identityCardProps) {
-  if (navigator.clipboard) {
-    ElNotification({
-      title: "复制成功",
+  if (navigator.clipboard && props) {
+    // ElNotification({
+    //   title: "复制成功",
+    //   message: `当前复制的内容是：${<string>props}`,
+    //   type: 'success',
+    //   // position: "bottom-right",
+    //   duration: 2000
+    // })
+    ElMessage({
+      type: "success",
       message: `当前复制的内容是：${<string>props}`,
-      type: 'success',
-      // position: "bottom-right",
-      duration: 2000
+      showClose: true,
+      duration: 1000
     })
     navigator.clipboard.writeText(<string>props)
   }
