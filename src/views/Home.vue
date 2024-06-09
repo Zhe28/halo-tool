@@ -22,11 +22,11 @@ const title = "MyTools";
         <router-view></router-view>
       </el-main>
       <!-- 右边栏 -->
-      <el-aside width="200px">
-        <!--<right-side/>-->
-        <router-view
-            name="rightSideS"></router-view>
-      </el-aside>
+<!--      <el-aside width="200px">-->
+<!--        &lt;!&ndash;<right-side/>&ndash;&gt;-->
+<!--        <router-view-->
+<!--            name="rightSideS"></router-view>-->
+<!--      </el-aside>-->
     </el-container>
   </el-container>
 </template>
