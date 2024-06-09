@@ -9,7 +9,7 @@ export const router = createRouter({
     components: {
       default: () => import("../views/subView/IdentityCard.vue"),
       leftSide: () => import("../views/subView/LeftSide.vue"),
-      rightSide: () => import("../components/RightSide.vue")
+      // rightSide: () => import("../components/RightSide.vue")
     },
     children: [{
       path: identityCardPath,
