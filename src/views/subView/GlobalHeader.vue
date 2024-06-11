@@ -2,17 +2,14 @@
 import ToolIcon from "../../assets/ToolIcon.vue";
 import {ref} from "vue";
 
-const props = defineProps<{
-  title: string
-}>()
-
+const title = ref<string>('halo tool')
 const underline = ref(false)
 </script>
 
 <template>
   <el-link :underline=underline href="/" class="container">
     <tool-icon class="icon"/>
-    <h2>{{ props.title }}</h2>
+    <h2>{{ title }}</h2>
   </el-link>
 </template>
 
