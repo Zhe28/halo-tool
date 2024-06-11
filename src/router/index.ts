@@ -9,6 +9,7 @@ export const router = createRouter({
     components: {
       default: () => import("../views/subView/IdentityCard.vue"),
       leftSide: () => import("../views/subView/LeftSide.vue"),
+      nav: () => import('../views/subView/GlobalHeader.vue')
       // rightSide: () => import("../components/RightSide.vue")
     },
     children: [{

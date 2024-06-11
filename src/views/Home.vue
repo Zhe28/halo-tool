@@ -1,32 +1,30 @@
 <script setup lang="ts">
-import GlobalHeader from "./subView/GlobalHeader.vue";
+import {ref} from "vue";
 
-const title = "MyTools";
+const showLeftSide = ref<boolean>(true);
+window.addEventListener("resize", () => {
+  // 判断屏幕宽度 并决定是否展示侧边栏
+  window.innerWidth < 768 ?
+      showLeftSide.value = false
+      : showLeftSide.value = true
+})
 </script>
 
 <template>
   <el-container>
-    <el-header class="header">
-      <global-header :title="title"/>
+    <el-header class="header hidden">
+      <router-view name="nav"/>
     </el-header>
     <el-container>
       <!-- 左边栏 -->
-      <el-aside width="200px">
+      <el-aside width="200px" v-if="showLeftSide">
         <!--<left-side/>-->
-        <router-view
-            name="leftSide"></router-view>
+        <router-view name="leftSide"/>
       </el-aside>
       <!-- 内容栏 -->
       <el-main>
-        <!--<content/>-->
-        <router-view></router-view>
+        <router-view/>
       </el-main>
-      <!-- 右边栏 -->
-<!--      <el-aside width="200px">-->
-<!--        &lt;!&ndash;<right-side/>&ndash;&gt;-->
-<!--        <router-view-->
-<!--            name="rightSideS"></router-view>-->
-<!--      </el-aside>-->
     </el-container>
   </el-container>
 </template>
@@ -34,6 +32,5 @@ const title = "MyTools";
 <style scoped>
 .header {
   display: flex;
-
 }
 </style>
