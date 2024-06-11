@@ -2,7 +2,7 @@ import _axios from "axios"
 
 function createAxios() {
   // 检测是否是 http 页面  https端口请求 522
-  if (window.location.protocol === "http:") {
+  if (window.location.protocol === "https:") {
     return _axios.create({
       baseURL: "https://localhost:522/",
     })
