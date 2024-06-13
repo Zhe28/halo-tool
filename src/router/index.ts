@@ -8,8 +8,8 @@ export const router = createRouter({
     path: '/',
     components: {
       default: () => import("../views/subView/IdentityCard.vue"),
-      leftSide: () => import("../views/subView/LeftSide.vue"),
-      nav: () => import('../views/subView/GlobalHeader.vue')
+      leftSide: () => import("../views/subView/Side.vue"),
+      nav: () => import('../views/subView/Header.vue')
       // rightSide: () => import("../components/RightSide.vue")
     },
     children: [{

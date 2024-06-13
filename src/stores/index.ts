@@ -1,10 +1,14 @@
 import {defineStore} from "pinia";
 
 export const useGlobalConfig = defineStore("globalConfig", {
-  state: () => {
+  state: (): globalConfig => {
     return {
       theme: 'auto',
-      navbarMode: 'vertical' //horizontal | vertical
+      navbar: {},
+      sidebar: {
+        mode: 'vertical', //horizontal | vertical
+        isCollapse: false,
+      }
     }
   },
   actions: () => {

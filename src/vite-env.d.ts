@@ -12,11 +12,20 @@ type identityCard = {
   /**
    * @description 创建时间
    */
-  createdAt?:string,
+  createdAt?: string,
   /**
    * @description 更新时间
    */
-  updatedAt?:string
+  updatedAt?: string
 }
 
 type identityCardProps = Extract<identityCard, 'name' | 'number'>
+
+type globalConfig = {
+  theme: 'light' | 'dark' | 'auto',
+  navbar: {}
+  sidebar: {
+    mode: 'horizontal' | 'vertical',
+    isCollapse: boolean
+  }
+}
