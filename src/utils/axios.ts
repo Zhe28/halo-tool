@@ -11,7 +11,7 @@ function createAxios() {
     ? baseUrl = `${protocol}//${HOST}:522/`
     : baseUrl = `${protocol}//${HOST}:521/`;
 
-  // console.log(baseUrl)
+  console.log(`axios will be request the baseUrl ${{baseUrl}}`)
   return _axios.create({
     baseURL: baseUrl
   })
