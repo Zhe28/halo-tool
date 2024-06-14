@@ -36,3 +36,6 @@ bun.lockb
 
 #
 .env
+
+# coverage file
+coverage
