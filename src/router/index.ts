@@ -7,16 +7,15 @@ export const router = createRouter({
     name: 'home',
     path: '/',
     components: {
-      default: () => import("../views/subView/IdentityCard.vue"),
-      leftSide: () => import("../views/subView/Side.vue"),
-      nav: () => import('../views/subView/Header.vue')
-      // rightSide: () => import("../components/RightSide.vue")
+      content: () => import("@/components/PageHeader.vue"),
+      leftSide: () => import("@/views/subView/Side.vue"),
+      nav: () => import('@/views/subView/Header.vue'),
+      welcome: ()=>import("@/views/Welcome.vue")
     },
     children: [{
+      name: 'identityCard',
       path: identityCardPath,
-      components: {
-        default: () => import("../views/subView/IdentityCard.vue")
-      },
+      component: () => import("@/views/subView/IdentityCard.vue")
     }]
   }]
 })

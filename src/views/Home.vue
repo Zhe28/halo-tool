@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 </script>
 
 <template>
@@ -15,7 +14,7 @@
       </el-aside>
       <!-- 内容栏 -->
       <el-main>
-        <router-view/>
+        <router-view name="content"/>
       </el-main>
     </el-container>
   </el-container>

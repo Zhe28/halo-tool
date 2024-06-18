@@ -1,6 +1,10 @@
 <template>
   <div>
     <el-scrollbar>
+      <el-radio-group v-model="useGlobalConfig().sidebar.isCollapse">
+        <el-radio-button :value="false">expand</el-radio-button>
+        <el-radio-button :value="true">collapse</el-radio-button>
+      </el-radio-group>
       <el-menu
           :collapse="globalConfig.sidebar.isCollapse"
           :router="true"
@@ -18,8 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import {identityCardPath} from "../../router/path.ts";
-import {useGlobalConfig} from "../../stores";
+import {identityCardPath} from "@/router/path.ts";
+import {useGlobalConfig} from "@/stores";
 import {Postcard} from "@element-plus/icons-vue";
 
 const globalConfig = useGlobalConfig()
