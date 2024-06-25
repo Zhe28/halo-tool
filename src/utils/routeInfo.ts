@@ -1,5 +1,5 @@
 import type {IrouteInfo} from "./type/routeInfo.d.ts";
-import {ArrowDownBold, ArrowLeft} from "@element-plus/icons-vue";
+import {Postcard, ArrowLeft} from "@element-plus/icons-vue";
 import {type RouteLocationNormalizedLoaded} from "vue-router";
 import {markRaw} from "vue";
 
@@ -19,7 +19,7 @@ function routeInfo(route: RouteLocationNormalizedLoaded): IrouteInfo {
     res = {
       title: '随机身份证',
       subTitle: '随机生成身份证信息，信息全部随机生成，请勿乱用',
-      icon: markRaw(ArrowDownBold)
+      icon: markRaw(Postcard)
     }
   }
   return res
