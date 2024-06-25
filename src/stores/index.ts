@@ -1,5 +1,4 @@
 import {defineStore} from "pinia";
-import {useRoute} from "vue-router";
 
 export const useGlobalConfig = defineStore("globalConfig", {
   state: (): globalConfig => {

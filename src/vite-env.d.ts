@@ -26,6 +26,7 @@ type globalConfig = {
   navbar: {}
   sidebar: {
     mode: 'horizontal' | 'vertical',
-    isCollapse: boolean
+    isCollapse: boolean,
+    isShow: boolean
   }
 }
